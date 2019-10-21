@@ -1,0 +1,18 @@
+.navbar-default {
+  margin-bottom: 0;
+  background-color: #932290;
+  border-radius: 0;
+  border-color: rgba(0,0,0,.075);
+}
+
+.navbar-nav>li>a {
+  color: white;
+}
+
+.navbar-nav>li>a {
+  padding: 15px 40px;
+}
+
+.navbar-default .navbar-nav>.active>a {
+  background-color: #CE0065;
+}

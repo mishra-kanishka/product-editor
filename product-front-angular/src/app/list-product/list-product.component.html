@@ -1,0 +1,37 @@
+<div class="container">
+  <h2> Product List </h2>
+  <div class="col-sm-12" style="border:1px solid #cecece;">
+    <table class="table table-striped" >
+      <thead>
+      <tr>
+        <th class="hidden">Id</th>
+        <th>Code</th>
+        <th>Category</th>
+        <th>Name</th>
+        <th>Price</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let product of products">
+        <td class="hidden">{{product.id}}</td>
+        <td>{{ product.code }}</td>
+        <td>{{ product.category }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price }}</td>
+        <td>
+          <div>
+            <button class="btn btn-primary btn-sm col-md-auto"
+                    (click)="editProduct(product)"
+                    routerLink="/edit-product"> Edit </button>
+            <button class="btn btn-danger btn-sm col-md-auto"
+                    style="margin-left: 40px"
+                    (click)="deleteProduct(product)"> Delete </button>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <div><button class="btn btn-success btn-lg pull-right" routerLink="/add-product"> Add new </button></div>
+  </div>
+</div>
+
