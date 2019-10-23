@@ -2,6 +2,7 @@ import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {ApiService} from '../core/api.service';
 import {Product} from '../model/product.model';
 import {NgForm} from '@angular/forms';
+import {DataService} from '../core/data.service';
 
 @Component({
   selector: 'app-edit-product',
@@ -10,21 +11,18 @@ import {NgForm} from '@angular/forms';
 })
 export class EditProductComponent implements OnInit, AfterViewInit {
   @ViewChild('ef', {static: false}) editForm: NgForm;
-  editedProductIndex: number;
-  private editedProduct: Product;
 
-  constructor(private apiService: ApiService) {
-    this.editedProductIndex = +window.localStorage.getItem('editProductId');
-    this.apiService.getProductById(this.editedProductIndex)
-      .subscribe(data => {
-        this.editedProduct = data;
-      });
+  editedProduct: Product;
+
+  constructor(private apiService: ApiService, private dataService: DataService) {
+    // this.editedProductIndex = +window.localStorage.getItem('editProductId');
+    this.dataService.currentProduct.subscribe(product => this.editedProduct = product);
   }
 
   ngOnInit() { }
 
   ngAfterViewInit(): void {
-    console.log(this.editedProduct)
+    console.log(this.editedProduct);
     setTimeout(() => {
       this.editForm.setValue(this.editedProduct);
     }, );

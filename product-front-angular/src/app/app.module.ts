@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { ApiService } from './core/api.service';
 import { HttpClientModule } from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import {DataService} from './core/data.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import {FormsModule} from '@angular/forms';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [ApiService],
+  providers: [ApiService, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
